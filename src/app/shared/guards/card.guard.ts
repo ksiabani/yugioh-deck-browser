@@ -6,7 +6,7 @@ import {
   Router
 } from "@angular/router";
 import { Observable } from "rxjs";
-import { cards } from "../services/data.service";
+import { cardNames } from '../card-names';
 
 @Injectable({
   providedIn: "root"
@@ -19,7 +19,7 @@ export class CardGuard implements CanActivate {
   ): Observable<boolean> | Promise<boolean> | boolean {
     const cardId = next.params.cardId;
     if (!cardId) {
-      this.router.navigate(['/cards', cards[0].name]);
+      this.router.navigate(['/cards', cardNames[0]]);
     }
     return true;
   }

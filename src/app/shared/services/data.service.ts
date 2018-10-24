@@ -1,35 +1,27 @@
 import { Injectable } from "@angular/core";
-
-export interface Card {
-  name: string;
-}
-
-export const cards: Card[] = [
-  { name: "Burial from a Different Dimension" },
-  { name: "Charge of the Light Brigade" },
-  { name: "Infernoid Antra" },
-  { name: "Infernoid Attondel" },
-  { name: "Infernoid Decatron" },
-  { name: "Infernoid Devyaty" },
-  { name: "Infernoid Harmadik" },
-  { name: "Infernoid Onuncu" },
-  { name: "Infernoid Patrulea" },
-  { name: "Infernoid Pirmais" },
-  { name: "Infernoid Seitsemas" },
-  { name: "Lyla, Lightsworn Sorceress" },
-  { name: "Monster Gate" },
-  { name: "One for One" },
-  { name: "Raiden, Hand of the Lightsworn" },
-  { name: "Reasoning" },
-  { name: "Time-Space Trap Hole" },
-  { name: "Torrential Tribute" },
-  { name: "Upstart Goblin" },
-  { name: "Void Seer" }
-];
+import { HttpClient } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
+import { Card } from "../models/deck.model";
+import { forkJoin, Observable, of } from "rxjs";
+import { mergeMap } from "rxjs/operators";
+import { cardNames } from '../card-names';
 
 @Injectable({
   providedIn: "root"
 })
 export class DataService {
-  constructor() {}
+  cardNames: Observable<string[]> = of(cardNames);
+  constructor(private http: HttpClient) {}
+
+  getCards() {
+    return this.cardNames.pipe(
+      mergeMap(q =>
+        forkJoin(
+          ...q.map(cardName =>
+            this.http.get<Card>(`${environment.api}/card_data/${cardName}`)
+          )
+        )
+      )
+    );
+  }
 }
