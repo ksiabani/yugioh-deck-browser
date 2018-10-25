@@ -1,9 +1,9 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isMobile | async) ? 'dialog' : 'navigation'"
                [mode]="(isMobile | async) ? 'over' : 'side'" [opened]="!(isMobile | async)">
-    <mat-toolbar class="sidenav__header" routerLink="/admin">
-      <mat-icon class="sidenav__header__icon">remove_red_eye</mat-icon>
-      <span>YuGiOh Deck Browser</span>
+    <mat-toolbar class="sidenav__header">
+      <!--<mat-icon class="sidenav__header__icon">remove_red_eye</mat-icon>-->
+      <!--<span>YuGiOh Deck Browser</span>-->
     </mat-toolbar>
     <app-cards></app-cards>
   </mat-sidenav>

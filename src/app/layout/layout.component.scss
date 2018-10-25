@@ -1,0 +1,54 @@
+@import '../../theme/theme-variables';
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  overflow: hidden;
+}
+
+.content {
+  &__header {
+    position: fixed;
+    background: #0099E0;
+    padding-right: $sidenav-width;
+    z-index: 1;
+    &--transparent {
+      background: transparent;
+    }
+    &--isMobile {
+      padding-right: 0;
+    }
+    img {
+      height: 32px;
+      width: auto;
+      border-radius: 50%;
+      margin: 0 32px 0 16px;
+    }
+    &__icon {
+      color: #fafafa;
+    }
+  }
+  &__inner {
+    height: 100%;
+    padding-top: $toolbar-height;
+  }
+}
+
+.sidenav {
+  width: $sidenav-width;
+  background-color: #18212A;
+  overflow-x: hidden;
+  &__header {
+    border-bottom: 1px solid rgba(117, 117, 117, 0.2);
+    background: #252F3C;
+    color: #fafafa;
+    cursor: pointer;
+    &__icon {
+      font-size: 36px;
+      height: 36px;
+      width: auto;
+    }
+  }
+}
