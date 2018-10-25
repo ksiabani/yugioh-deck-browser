@@ -6,12 +6,26 @@
 
 .sidenav {
   overflow: hidden;
+  width: $sidenav-width;
+  &__header {
+    border-bottom: 1px solid rgba(117, 117, 117, 0.2);
+    background: $black;
+    color: #fafafa;
+    cursor: pointer;
+    padding: 0 8px;
+    &__icon {
+      font-size: 36px;
+      height: 36px;
+      width: auto;
+      padding: 0 12px;
+    }
+  }
 }
 
 .content {
   &__header {
     position: fixed;
-    background: #0099E0;
+    background: $gray;
     padding-right: $sidenav-width;
     z-index: 1;
     &--transparent {
@@ -27,28 +41,12 @@
       margin: 0 32px 0 16px;
     }
     &__icon {
-      color: #fafafa;
+      color: $black;
     }
   }
   &__inner {
     height: 100%;
     padding-top: $toolbar-height;
-  }
-}
-
-.sidenav {
-  width: $sidenav-width;
-  background-color: #18212A;
-  overflow-x: hidden;
-  &__header {
-    border-bottom: 1px solid rgba(117, 117, 117, 0.2);
-    background: #252F3C;
-    color: #fafafa;
-    cursor: pointer;
-    &__icon {
-      font-size: 36px;
-      height: 36px;
-      width: auto;
-    }
+    background: $gray;
   }
 }

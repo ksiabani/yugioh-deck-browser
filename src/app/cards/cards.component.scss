@@ -1,22 +1,27 @@
+@import '../../theme/theme-variables';
+
 .sidenav {
   &__list {
     height: calc(100% - 48px);
     overflow-y: scroll;
-    background: #060707;
+    background: $black;
     border-bottom: 1px solid rgba(117, 117, 117, 0.2);
     padding: 16px 0;
     a {
-      color: #fafafa;
+      color: $white;
       font-size: 1rem;
       margin: 8px 12px;
       border-radius: 3px;
+      border-bottom: 1px solid rgba(117, 117, 117, 0.2);
       &:hover {
         background: rgba(255, 255, 255, 0.1);
+        border: 0;
       }
     }
     a.active {
       //color: #37b59f;
       //background: #F42465;
+      transition: background 0.3s linear;
       &.active--monster {
         background: #A25E4C;
       }
@@ -27,21 +32,26 @@
         background: #913D69;
       }
       & .sidenav__list__arrow {
-        margin-right: -8px;
+        margin-right: -9px;
         visibility: visible;
         opacity: 1;
+      }
+      & .sidenav__list__icon {
+        font-weight: 700;
+        transition: font-weight 0.3s linear;
       }
     }
     &__icon {
       margin-right: 16px;
       height: 40px;
-      width: 50px;
+      width: 40px;
       border-radius: 2px;
       border: 1px solid rgba(255, 255, 255, 0.4);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 700;
+      font-weight: 300;
+      flex: 0 0 40px;
     }
     &__item {
       width: 100%;
@@ -56,10 +66,10 @@
       }
     }
     &__arrow {
-      margin-right: 0;
+      margin-right: -3px;
       visibility: hidden;
       opacity: 0;
-      transition: all 0.3s linear;
+      transition: all 0.2s linear;
     }
   }
 }

@@ -13,7 +13,7 @@ import { DeckState } from "../shared/store/deck.state";
 export class LayoutComponent implements OnInit {
   isHome: boolean;
   isMobile: Observable<boolean> = this.breakpointObserver
-    .observe([Breakpoints.Handset, Breakpoints.Tablet, Breakpoints.WebPortrait])
+    .observe([Breakpoints.Handset, Breakpoints.TabletPortrait, Breakpoints.WebPortrait])
     .pipe(map(result => result.matches));
   @Select(DeckState.cardName)
   cardName: Observable<string>;
