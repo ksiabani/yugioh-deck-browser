@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { CardComponent } from './card/card.component';
-import { CardGuard } from './shared/guards/card.guard';
-import { CardsComponent } from './cards/cards.component';
-import { LayoutComponent } from './layout/layout.component';
+import { CardComponent } from "./card/card.component";
+import { CardGuard } from "./shared/guards/card.guard";
+import { CardsComponent } from "./cards/cards.component";
+import { LayoutComponent } from "./layout/layout.component";
 
 const routes: Routes = [
   {
@@ -24,9 +24,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

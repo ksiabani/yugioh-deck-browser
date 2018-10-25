@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { environment } from "../../../environments/environment";
 import { Card } from "../models/deck.model";
 import { forkJoin, Observable, of } from "rxjs";
-import { mergeMap } from "rxjs/operators";
-import { cardNames } from "../card-names";
+import { mergeMap, tap } from "rxjs/operators";
+import { cardNames } from "../data/card-names";
 
 @Injectable({
   providedIn: "root"
@@ -24,5 +24,11 @@ export class DataService {
         )
       )
     );
+  }
+
+  getCardImage(cardName: string): Observable<Blob> {
+    return this.http.get(`${environment.api}/card_image/${cardName}`, {
+      responseType: "blob"
+    });
   }
 }

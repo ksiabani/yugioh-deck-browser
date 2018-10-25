@@ -1,4 +1,4 @@
-import { Card } from './deck.model';
+import { Card } from "./deck.model";
 
 export interface ApiResponse {
   status: string;

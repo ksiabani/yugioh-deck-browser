@@ -1,3 +1,7 @@
-<p>
-  card works!
-</p>
+<div *ngIf="!(loading | async) else skeleton">
+  <img [src]="imageData | async">
+</div>
+
+<ng-template #skeleton>
+  Loading...
+</ng-template>

@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { map } from "rxjs/operators";
-import { Store } from '@ngxs/store';
-import { GetCards } from '../shared/store/deck.actions';
+import { Select } from "@ngxs/store";
+import { DeckState } from "../shared/store/deck.state";
 
 @Component({
   selector: "app-layout",
@@ -15,13 +15,12 @@ export class LayoutComponent implements OnInit {
   isMobile: Observable<boolean> = this.breakpointObserver
     .observe([Breakpoints.Handset, Breakpoints.Tablet, Breakpoints.WebPortrait])
     .pipe(map(result => result.matches));
+  @Select(DeckState.cardName)
+  cardName: Observable<string>;
 
   constructor(
-    private breakpointObserver: BreakpointObserver,
-    private store: Store
+    private breakpointObserver: BreakpointObserver
   ) {}
 
-  ngOnInit() {
-    this.store.dispatch(new GetCards());
-  }
+  ngOnInit() {}
 }

@@ -4,56 +4,56 @@ export interface Deck {
 }
 
 enum CardType {
-  'monster',
-  'spell',
-  'trap'
+  "monster",
+  "spell",
+  "trap"
 }
 
 enum Type {
-  'Aqua',
-  'Beast',
-  'Beast-Warrior',
-  'Cyberse',
-  'Dinosaur',
-  'Divine-Beast',
-  'Dragon',
-  'Fairy',
-  'Fiend',
-  'Fish',
-  'Insect',
-  'Machine',
-  'Plant',
-  'Psychic',
-  'Pyro',
-  'Reptile',
-  'Rock',
-  'Sea Serpent',
-  'Spellcaster',
-  'Thunder',
-  'Warrior',
-  'Winged Beast',
-  'Wyrm',
-  'Zombie'
+  "Aqua",
+  "Beast",
+  "Beast-Warrior",
+  "Cyberse",
+  "Dinosaur",
+  "Divine-Beast",
+  "Dragon",
+  "Fairy",
+  "Fiend",
+  "Fish",
+  "Insect",
+  "Machine",
+  "Plant",
+  "Psychic",
+  "Pyro",
+  "Reptile",
+  "Rock",
+  "Sea Serpent",
+  "Spellcaster",
+  "Thunder",
+  "Warrior",
+  "Winged Beast",
+  "Wyrm",
+  "Zombie"
 }
 
 enum Family {
-  'Dark',
-  'Divine',
-  'Earth',
-  'Fire',
-  'Light',
-  'Water',
-  'Wind'
+  "Dark",
+  "Divine",
+  "Earth",
+  "Fire",
+  "Light",
+  "Water",
+  "Wind"
 }
 
 enum Property {
-  'Normal',
-  'Continuous',
-  'Equip',
-  'Field',
-  'Quick-play',
-  'Ritual',
-  'Counter'
+  "Normal",
+  "Continuous",
+  "Equip",
+  "Field",
+  "Quick-play",
+  "Ritual",
+  "Counter"
 }
 
 export interface Card {

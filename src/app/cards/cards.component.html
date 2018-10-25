@@ -1,5 +1,6 @@
 <mat-nav-list class="sidenav__list">
-  <a *ngFor="let card of cards | async" mat-list-item routerLink="'/cards/' + card.name" routerLinkActive="active"
+  <a *ngFor="let card of cards | async" (click)="getCardDetails(card.name)" mat-list-item [routerLink]="['/cards', card.name]"
+     routerLinkActive="active"
      [routerLinkActiveOptions]="{exact:true}">
     <!--<mat-icon class="sidenav__list__icon">dashboard</mat-icon>-->
     <span>{{card.name}}</span>
