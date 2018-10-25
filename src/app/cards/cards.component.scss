@@ -1,0 +1,13 @@
+.sidenav{
+  &__list {
+    background: #4E546B;
+    a {
+      color: #fafafa;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    a.active {
+      color: #37B59F;
+    }
+  }
+}

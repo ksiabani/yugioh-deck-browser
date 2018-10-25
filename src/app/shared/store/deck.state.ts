@@ -1,6 +1,6 @@
 import { Selector, State, Action, StateContext, Store } from "@ngxs/store";
 import * as actions from "./deck.actions";
-import { filter, map, tap } from "rxjs/operators";
+import { tap } from "rxjs/operators";
 import { Card } from "../models/deck.model";
 import { DataService } from "../services/data.service";
 import { ApiResponse } from "../models/api-response.model";
@@ -27,9 +27,8 @@ export class DeckState {
   getCards(ctx: StateContext<DeckStateModel>) {
     ctx.patchState({ loading: true });
     return this.dataService.getCards().pipe(
-      map(({ data }: ApiResponse) => data), //TODO
-      // filter(({ data }: ApiResponse[]) => !!data), TODO
-      tap((cards: Card[]) => {
+      tap((response: ApiResponse[]) => {
+        const cards = response.map(res => res.data);
         ctx.patchState({ cards });
         ctx.patchState({ loading: false });
       })

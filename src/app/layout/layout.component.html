@@ -5,16 +5,16 @@
       <mat-icon class="sidenav__header__icon">remove_red_eye</mat-icon>
       <span>YuGiOh Deck Browser</span>
     </mat-toolbar>
-    <mat-nav-list class="sidenav__list">
-    </mat-nav-list>
+    <app-cards></app-cards>
   </mat-sidenav>
   <mat-sidenav-content class="content">
-    <mat-toolbar class="content__header" [ngClass]="{'content__header--transparent': isHome, 'content__header--isMobile': isMobile | async}">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isMobile | async">
+    <mat-toolbar class="content__header"
+                 [ngClass]="{'content__header--transparent': isHome, 'content__header--isMobile': isMobile | async}">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+              *ngIf="isMobile | async">
         <mat-icon class="content__header__icon" aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
     </mat-toolbar>
-    <app-cards></app-cards>
     <div class="content__inner">
       <app-card></app-card>
     </div>
