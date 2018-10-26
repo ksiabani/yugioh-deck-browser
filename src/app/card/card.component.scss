@@ -3,12 +3,15 @@
 .card {
   &__details {
     display: flex;
+    width: 100%;
     &__img {
       opacity: 1;
       width: 20vw;
       height: calc(20vw * 1.47);
       max-width: 300px;
       max-height: 440px;
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+        0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
       img {
         height: 100%;
         width: auto;
@@ -19,6 +22,7 @@
       flex-direction: column;
       position: relative;
       padding-left: 24px;
+      width: 100%;
     }
     &__title {
     }
@@ -31,6 +35,7 @@
       right: 0;
       width: 50px;
       height: 50px;
+      border-radius: 2px;
       color: $white;
       h6 {
         font-size: 0.8rem;
@@ -52,30 +57,62 @@
         background: #913d69;
       }
     }
+
     &__text {
       height: 100%;
     }
-    &__power {
+    &__feature {
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-end;
+      justify-content: space-between;
+      align-items: center;
       height: 100px;
       width: 100%;
-      &__attack,
-      &__defense {
+      &__progress {
         display: flex;
-        justify-content: center;
-        line-height: 23px;
+        flex-direction: column;
         .progress {
           margin: 4px 0 4px 8px;
           width: 200px;
-          height: 15px;
+          height: 25px;
         }
         .progress-bar {
-          height: 15px;
+          height: 25px;
+          background-color: #a25e4c;
+        }
+      }
+      &__attack,
+      &__defense {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      &__property {
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        line-height: 30px;
+        h4 {
+          margin-bottom: 2px;
         }
       }
     }
   }
+}
+
+.filter {
+  position: relative;
+  -webkit-filter: contrast(110%) brightness(110%) sepia(30%) grayscale(100%);
+  filter: contrast(110%) brightness(110%) sepia(30%) grayscale(100%);
+}
+
+.filter::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0);
 }

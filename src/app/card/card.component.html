@@ -5,25 +5,32 @@
         <img [src]="imageData | async">
       </div>
       <div class="card__details__content">
-        <div *ngIf="card.level" [ngClass]="['card__details__level', 'card__details__level--' + card.card_type]">
+        <div *ngIf="card.level"
+             [ngClass]="['card__details__level', 'card__details__level--' + card.card_type]">
           <h6>Level</h6>
           <span>{{card.level}}</span>
         </div>
         <h2 class="card__details__title">{{card.name}}</h2>
         <h4 class="card__details__type">{{card.type}}</h4>
         <div class="card__details__text">{{card.text}}</div>
-        <div *ngIf="card.atk" class="card__details__power">
-          <div class="card__details__power__attack">
-            <div>Attack:</div>
-            <div class="progress">
-              <div [ngStyle]="{'width': card.atk/50 + '%'}" class="progress-bar">{{card.atk}}
+        <div *ngIf="card.level || card.property" class="card__details__feature">
+          <div class="card__details__feature__property">
+            <h4 *ngIf="card.level" class="card__details__feature__family">Family: {{card.family | titlecase}}</h4>
+            <h4 *ngIf="card.property" class="card__details__feature__family">Attribute: {{card.property | titlecase}}</h4>
+          </div>
+          <div *ngIf="card.level" class="card__details__feature__progress">
+            <div class="card__details__feature__attack">
+              <div>Attack:</div>
+              <div class="progress">
+                <div [ngStyle]="{'width': card.atk/50 + '%'}" class="progress-bar">{{card.atk}}
+                </div>
               </div>
             </div>
-          </div>
-          <div class="card__details__power__defense">
-            <div>Defense:</div>
-            <div class="progress">
-              <div [ngStyle]="{'width': card.def/20 + '%'}" class="progress-bar">{{card.def}}
+            <div class="card__details__feature__defense">
+              <div>Defense:</div>
+              <div class="progress">
+                <div [ngStyle]="{'width': card.def/20 + '%'}" class="progress-bar">{{card.def}}
+                </div>
               </div>
             </div>
           </div>
@@ -31,7 +38,6 @@
       </div>
     </mat-card>
   </div>
-  <div class="card__stats"></div>
 </div>
 
 <ng-template #skeleton>
