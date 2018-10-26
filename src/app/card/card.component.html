@@ -1,5 +1,15 @@
-<div *ngIf="!(loading | async) else skeleton">
+<div *ngIf="!(loading | async) else skeleton" class="card container-fluid">
   <!--<img [src]="imageData | async">-->
+  <div class="card__details">
+    <mat-card class="card card--orange" routerLink="pages">
+      <img [src]="imageData | async">
+      <mat-card-header class="card__header">
+        <mat-card-title class="card__title">Pages</mat-card-title>
+        <mat-card-subtitle class="card__subtitle">Manage your pages.</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
+  <div class="card__stats"></div>
 </div>
 
 <ng-template #skeleton>

@@ -13,9 +13,10 @@
     color: #fafafa;
     cursor: pointer;
     padding: 0 8px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
     &__icon {
-      font-size: 36px;
-      height: 36px;
+      height: 25px;
       width: auto;
       padding: 0 12px;
     }
@@ -28,6 +29,14 @@
     background: $gray;
     padding-right: $sidenav-width;
     z-index: 1;
+    font-size: 1rem;
+    color: #555;
+    &__title {
+      text-transform: uppercase;
+    }
+    &__stats {
+      padding-right: 16px;
+    }
     &--transparent {
       background: transparent;
     }

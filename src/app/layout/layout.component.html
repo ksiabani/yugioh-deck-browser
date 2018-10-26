@@ -9,12 +9,14 @@
     <app-cards></app-cards>
   </mat-sidenav>
   <mat-sidenav-content class="content">
-    <mat-toolbar class="content__header"
-                 [ngClass]="{'content__header--transparent': isHome, 'content__header--isMobile': isMobile | async}">
+    <mat-toolbar class="content__header" [ngClass]="{'content__header--isMobile': isMobile | async}">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
               *ngIf="isMobile | async">
         <mat-icon class="content__header__icon" aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+      <span *ngIf="!(isMobile | async)" class="content__header__title">Card details</span>
+      <span class="spacer"></span>
+      <span class="content__header__stats">Total cards: 20</span>
     </mat-toolbar>
     <div class="content__inner">
       <router-outlet></router-outlet>
