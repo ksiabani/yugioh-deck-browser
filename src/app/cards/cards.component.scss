@@ -1,9 +1,10 @@
 @import '../../theme/theme-variables';
 
 .sidenav {
+  &__scrollbar {
+    height: calc(100%);
+  }
   &__list {
-    height: calc(100% - 48px);
-    overflow-y: scroll;
     background: $black;
     border-bottom: 1px solid rgba(117, 117, 117, 0.2);
     padding: 16px 0;
@@ -19,8 +20,6 @@
       }
     }
     a.active {
-      //color: #37b59f;
-      //background: #F42465;
       transition: background 0.3s linear;
       &.active--monster {
         background: #A25E4C;

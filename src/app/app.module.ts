@@ -16,6 +16,7 @@ import {
 } from "@angular/material";
 import { NgxsModule } from "@ngxs/store";
 import { NgxsReduxDevtoolsPluginModule } from "@ngxs/devtools-plugin";
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { LayoutComponent } from "./layout/layout.component";
 import { CardsComponent } from "./cards/cards.component";
 import { CardComponent } from "./card/card.component";
@@ -37,7 +38,8 @@ import { DeckState } from "./shared/store/deck.state";
     MatCardModule,
     MatInputModule,
     NgxsModule.forRoot([DeckState]),
-    NgxsReduxDevtoolsPluginModule.forRoot()
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    PerfectScrollbarModule
   ],
   bootstrap: [AppComponent]
 })

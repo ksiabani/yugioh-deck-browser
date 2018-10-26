@@ -4,12 +4,13 @@ import { Card } from "../models/deck.model";
 import { DataService } from "../services/data.service";
 import { ApiResponse } from "../models/api-response.model";
 import { cardNames } from "../data/card-names";
-import { GetCards, SetCardName } from "./deck.actions";
+import { GetCards, SetCard, SetCardName } from "./deck.actions";
 import { GetCardImage } from "./deck.actions";
 import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
 
 export interface DeckStateModel {
   cards: Card[];
+  card: Card;
   cardName: string;
   imageData: SafeUrl;
   value: number;
@@ -18,7 +19,14 @@ export interface DeckStateModel {
 
 @State<DeckStateModel>({
   name: "deck",
-  defaults: { cards: [], cardName: "", imageData: "", value: 0, loading: false }
+  defaults: {
+    cards: [],
+    card: null,
+    cardName: "",
+    imageData: "",
+    value: 0,
+    loading: false
+  }
 })
 export class DeckState implements NgxsOnInit {
   constructor(
@@ -29,6 +37,11 @@ export class DeckState implements NgxsOnInit {
   @Selector()
   static cards(state: DeckStateModel): Card[] {
     return state.cards;
+  }
+
+  @Selector()
+  static card(state: DeckStateModel): Card {
+    return state.card;
   }
 
   @Selector()
@@ -50,7 +63,7 @@ export class DeckState implements NgxsOnInit {
     const cardName: string = cardNames[0];
     ctx.dispatch([
       new GetCards(),
-      new GetCardImage(cardName),
+      // new GetCardImage(cardName),
       new SetCardName(cardName)
     ]);
   }
@@ -65,6 +78,11 @@ export class DeckState implements NgxsOnInit {
         ctx.patchState({ loading: false });
       })
     );
+  }
+
+  @Action(SetCard)
+  setCard(ctx: StateContext<DeckStateModel>, { card }: SetCard) {
+    ctx.patchState({ card });
   }
 
   @Action(GetCardImage)

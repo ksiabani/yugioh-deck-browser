@@ -60,3 +60,8 @@ mat-toolbar {
 .mat-list-item .mat-list-item-content {
   padding: 0 8px !important;
 }
+
+// Custom scrollbar
+.ps__rail-y {
+  background: transparent !important;
+}

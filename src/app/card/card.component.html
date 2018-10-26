@@ -1,12 +1,34 @@
 <div *ngIf="!(loading | async) else skeleton" class="card container-fluid">
-  <!--<img [src]="imageData | async">-->
-  <div class="card__details">
-    <mat-card class="card card--orange" routerLink="pages">
-      <img [src]="imageData | async">
-      <mat-card-header class="card__header">
-        <mat-card-title class="card__title">Pages</mat-card-title>
-        <mat-card-subtitle class="card__subtitle">Manage your pages.</mat-card-subtitle>
-      </mat-card-header>
+  <div class="card__details" *ngIf="(card | async) as card">
+    <mat-card class="card__details">
+      <div class="card__details__img">
+        <img [src]="imageData | async">
+      </div>
+      <div class="card__details__content">
+        <div *ngIf="card.level" [ngClass]="['card__details__level', 'card__details__level--' + card.card_type]">
+          <h6>Level</h6>
+          <span>{{card.level}}</span>
+        </div>
+        <h2 class="card__details__title">{{card.name}}</h2>
+        <h4 class="card__details__type">{{card.type}}</h4>
+        <div class="card__details__text">{{card.text}}</div>
+        <div *ngIf="card.atk" class="card__details__power">
+          <div class="card__details__power__attack">
+            <div>Attack:</div>
+            <div class="progress">
+              <div [ngStyle]="{'width': card.atk/50 + '%'}" class="progress-bar">{{card.atk}}
+              </div>
+            </div>
+          </div>
+          <div class="card__details__power__defense">
+            <div>Defense:</div>
+            <div class="progress">
+              <div [ngStyle]="{'width': card.def/20 + '%'}" class="progress-bar">{{card.def}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </mat-card>
   </div>
   <div class="card__stats"></div>

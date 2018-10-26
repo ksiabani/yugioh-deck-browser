@@ -1,16 +1,19 @@
-<mat-nav-list class="sidenav__list">
-  <a *ngFor="let card of cards | async"
-     (click)="getCardDetails(card.name)"
-     mat-list-item [routerLink]="['/cards', card.name]"
-     [routerLinkActive]="['active', 'active--' + card.card_type]"
-     [routerLinkActiveOptions]="{exact:true}">
-    <div *ngIf="card.card_type === 'monster'" class="sidenav__list__icon">M</div>
-    <div *ngIf="card.card_type === 'spell'" class="sidenav__list__icon">S</div>
-    <div *ngIf="card.card_type === 'trap'" class="sidenav__list__icon">T</div>
-    <div class="sidenav__list__item">
-      <span>{{card.name}}</span>
-      <span>{{card.card_type | titlecase}}</span>
-    </div>
-    <mat-icon class="sidenav__list__arrow">keyboard_arrow_right</mat-icon>
-  </a>
-</mat-nav-list>
+<perfect-scrollbar class="sidenav__scrollbar">
+  <mat-nav-list class="sidenav__list">
+      <a *ngFor="let card of cards | async"
+         (click)="getCardDetails(card.name)"
+         mat-list-item [routerLink]="['/cards', card.name]"
+         [routerLinkActive]="['active', 'active--' + card.card_type]"
+         [routerLinkActiveOptions]="{exact:true}">
+        <div *ngIf="card.card_type === 'monster'" class="sidenav__list__icon">M</div>
+        <div *ngIf="card.card_type === 'spell'" class="sidenav__list__icon">S</div>
+        <div *ngIf="card.card_type === 'trap'" class="sidenav__list__icon">T</div>
+        <div class="sidenav__list__item">
+          <span>{{card.name}}</span>
+          <span>{{card.card_type | titlecase}}</span>
+        </div>
+        <mat-icon class="sidenav__list__arrow">keyboard_arrow_right</mat-icon>
+      </a>
+  </mat-nav-list>
+</perfect-scrollbar>
+
