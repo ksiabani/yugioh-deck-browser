@@ -1,17 +1,24 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isMobile | async) ? 'dialog' : 'navigation'"
-               [mode]="(isMobile | async) ? 'over' : 'side'" [opened]="!(isMobile | async)">
+  <mat-sidenav #sidenav
+               class="sidenav"
+               fixedInViewport="true"
+               [attr.role]="(isMobile | async) ? 'dialog' : 'navigation'"
+               [mode]="(isMobile | async) ? 'over' : 'side'"
+               [opened]="!(isMobile | async)"
+               (click)="closeSidenav()">
     <mat-toolbar class="sidenav__header">
-      <!--<mat-icon class="sidenav__header__icon">remove_red_eye</mat-icon>-->
-      <!--<img class="sidenav__header__icon" src="assets/images/logo.png">-->
       <i class="fa fa-optin-monster fa-2x sidenav__header__icon"></i>
       <span>Yu-Gi-Oh! Deck Browser</span>
     </mat-toolbar>
     <app-cards></app-cards>
   </mat-sidenav>
   <mat-sidenav-content class="content">
-    <mat-toolbar class="content__header" [ngClass]="{'content__header--isMobile': isMobile | async}">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+    <mat-toolbar class="content__header"
+                 [ngClass]="{'content__header--isMobile': isMobile | async}">
+      <button type="button"
+              aria-label="Toggle sidenav"
+              mat-icon-button
+              (click)="sidenav.toggle()"
               *ngIf="isMobile | async">
         <mat-icon class="content__header__icon" aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
