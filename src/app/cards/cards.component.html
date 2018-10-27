@@ -1,19 +1,28 @@
-<perfect-scrollbar class="sidenav__scrollbar">
+<perfect-scrollbar *ngIf="(cards | async) as cards else nocards" class="sidenav__scrollbar">
   <mat-nav-list class="sidenav__list">
-      <a *ngFor="let card of cards | async"
-         (click)="getCardDetails(card.name)"
-         mat-list-item [routerLink]="['/cards', card.name]"
-         [routerLinkActive]="['active', 'active--' + card.card_type]"
-         [routerLinkActiveOptions]="{exact:true}">
-        <div *ngIf="card.card_type === 'monster'" class="sidenav__list__icon">M</div>
-        <div *ngIf="card.card_type === 'spell'" class="sidenav__list__icon">S</div>
-        <div *ngIf="card.card_type === 'trap'" class="sidenav__list__icon">T</div>
-        <div class="sidenav__list__item">
-          <span>{{card.name}}</span>
-          <span>{{card.card_type | titlecase}}</span>
-        </div>
-        <mat-icon class="sidenav__list__arrow">keyboard_arrow_right</mat-icon>
-      </a>
+    <a *ngFor="let card of cards"
+       (click)="getCardDetails(card.name)"
+       mat-list-item [routerLink]="['/cards', card.name]"
+       [routerLinkActive]="['active', 'active--' + card.card_type]"
+       [routerLinkActiveOptions]="{exact:true}">
+      <div *ngIf="card.card_type === 'monster'" class="sidenav__list__icon">M</div>
+      <div *ngIf="card.card_type === 'spell'" class="sidenav__list__icon">S</div>
+      <div *ngIf="card.card_type === 'trap'" class="sidenav__list__icon">T</div>
+      <div class="sidenav__list__item">
+        <span>{{card.name}}</span>
+        <span>{{card.card_type | titlecase}}</span>
+      </div>
+      <mat-icon class="sidenav__list__arrow">keyboard_arrow_right</mat-icon>
+    </a>
   </mat-nav-list>
 </perfect-scrollbar>
+
+<ng-template #nocards>
+  <mat-nav-list class="sidenav__list card-skeleton">
+    <a *ngFor="let card of [s, o, m, e, n, i, c, e, a, r, r, a, y]" mat-list-item>
+      <div class="sidenav__list__icon card-skeleton"></div>
+      <div class="sidenav__list__item card-skeleton"></div>
+    </a>
+  </mat-nav-list>
+</ng-template>
 

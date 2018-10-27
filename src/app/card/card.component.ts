@@ -23,14 +23,16 @@ export class CardComponent implements OnInit {
   @Select(DeckState.card)
   card: Observable<Card>;
 
-
   constructor(private route: ActivatedRoute, private store: Store) {}
 
   ngOnInit() {
     this.cards.pipe(filter(cards => !!cards)).subscribe(cards => {
       const cardName = this.route.snapshot.params.cardId;
       const selectedCard = cards.find(card => card.name === cardName);
-      this.store.dispatch([new GetCardImage(cardName), new SetCard(selectedCard)]);
+      this.store.dispatch([
+        new GetCardImage(cardName),
+        new SetCard(selectedCard)
+      ]);
     });
   }
 }

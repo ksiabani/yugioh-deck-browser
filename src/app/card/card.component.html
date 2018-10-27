@@ -1,44 +1,64 @@
-<div *ngIf="!(loading | async) else skeleton" class="card container-fluid">
-  <div class="card__details" *ngIf="(card | async) as card">
-    <mat-card class="card__details">
-      <div class="card__details__img">
-        <img [src]="imageData | async">
+<div *ngIf="!(loading | async) else nocard" class="card container-fluid">
+  <mat-card *ngIf="(card | async) as card" class="card__details">
+    <div class="card__details__img">
+      <img [src]="imageData | async">
+    </div>
+    <div class="card__details__content">
+      <div *ngIf="card.level"
+           [ngClass]="['card__details__level', 'card__details__level--' + card.card_type]">
+        <h6>Level</h6>
+        <span>{{card.level}}</span>
       </div>
-      <div class="card__details__content">
-        <div *ngIf="card.level"
-             [ngClass]="['card__details__level', 'card__details__level--' + card.card_type]">
-          <h6>Level</h6>
-          <span>{{card.level}}</span>
+      <h2 class="card__details__title">{{card.name}}</h2>
+      <h4 class="card__details__type">
+        <span>{{card.type}}</span>
+        <span *ngIf="card.level">, </span>
+        <span>{{card.family | titlecase}}</span>
+        <span>{{card.property | titlecase}}</span>
+      </h4>
+      <div class="card__details__text">{{card.text}}</div>
+      <div *ngIf="card.level" class="card__details__power">
+        <div class="card__details__power__attack">
+          <div>Attack:</div>
+          <div class="progress">
+            <div [ngStyle]="{'width': card.atk/50 + '%'}" class="progress-bar">{{card.atk}}
+            </div>
+          </div>
         </div>
-        <h2 class="card__details__title">{{card.name}}</h2>
-        <h4 class="card__details__type">
-          <span>{{card.type}}</span>
-          <span *ngIf="card.level">, </span>
-          <span>{{card.family | titlecase}}</span>
-          <span>{{card.property | titlecase}}</span>
-        </h4>
-        <div class="card__details__text">{{card.text}}</div>
-        <div *ngIf="card.level" class="card__details__power">
+        <div class="card__details__power__defense">
+          <div>Defense:</div>
+          <div class="progress">
+            <div [ngStyle]="{'width': card.def/20 + '%'}" class="progress-bar">{{card.def}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+<ng-template #nocard>
+  <div class="container-fluid">
+    <mat-card class="card__details">
+      <div class="card__details__img skeleton"></div>
+      <div class="card__details__content">
+        <div class="card__details__level skeleton"></div>
+        <h2 class="card__details__title skeleton"></h2>
+        <h4 class="card__details__type skeleton"></h4>
+        <div class="card__details__text skeleton"></div>
+        <div class="card__details__power">
           <div class="card__details__power__attack">
-            <div>Attack:</div>
-            <div class="progress">
-              <div [ngStyle]="{'width': card.atk/50 + '%'}" class="progress-bar">{{card.atk}}
-              </div>
+            <div class="progress skeleton">
+              <div class="progress-bar"></div>
             </div>
           </div>
           <div class="card__details__power__defense">
-            <div>Defense:</div>
-            <div class="progress">
-              <div [ngStyle]="{'width': card.def/20 + '%'}" class="progress-bar">{{card.def}}
-              </div>
+            <div class="progress skeleton">
+              <div class="progress-bar"></div>
             </div>
           </div>
         </div>
       </div>
     </mat-card>
   </div>
-</div>
-
-<ng-template #skeleton>
-  Loading...
 </ng-template>

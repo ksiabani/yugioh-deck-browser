@@ -4,8 +4,12 @@
   &__details {
     display: flex;
     width: 100%;
+    &.skeleton{
+      height: 360px;
+    }
     &__img {
       opacity: 1;
+      min-width: 20vw;
       width: 20vw;
       height: calc(20vw * 1.47);
       max-width: 300px;
@@ -19,6 +23,11 @@
       @media (max-width: 480px){
         display: none;
       }
+      &.skeleton{
+        min-width: 20vw;
+        background: $gray;
+        box-shadow: none;
+      }
     }
     &__content {
       display: flex;
@@ -31,6 +40,18 @@
       }
     }
     &__title {
+      &.skeleton {
+        height: 30px;
+        width: 70%;
+        background: $gray;
+      }
+    }
+    &__type {
+      &.skeleton {
+        height: 20px;
+        width: 50%;
+        background: $gray;
+      }
     }
     &__level {
       display: flex;
@@ -62,10 +83,20 @@
       &--trap {
         background: #913d69;
       }
+      &.skeleton {
+        background: $gray;
+      }
     }
 
     &__text {
       height: 100%;
+      transition: all .3s linear;
+      &.skeleton {
+        height: 90%;
+        margin: 16px 0 8px;
+        background: $gray;
+        transition: all .3s linear;
+      }
     }
 
     &__power {
@@ -84,6 +115,9 @@
           margin: 4px 0 4px 8px;
           width: 200px;
           height: 25px;
+          &.skeleton {
+            background: $gray;
+          }
         }
         .progress-bar {
           height: 25px;
@@ -91,5 +125,21 @@
         }
       }
     }
+  }
+}
+
+*.skeleton {
+  animation: loadingcard 2s infinite linear;
+}
+
+@keyframes loadingcard {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.1;
   }
 }

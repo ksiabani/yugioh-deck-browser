@@ -63,7 +63,6 @@ export class DeckState implements NgxsOnInit {
     const cardName: string = cardNames[0];
     ctx.dispatch([
       new GetCards(),
-      // new GetCardImage(cardName),
       new SetCardName(cardName)
     ]);
   }
