@@ -5,11 +5,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import {
-  MatButtonModule,
   MatCardModule,
-  MatDividerModule,
   MatIconModule,
-  MatInputModule,
   MatListModule,
   MatSidenavModule,
   MatToolbarModule
@@ -31,12 +28,9 @@ import { DeckState } from "./shared/store/deck.state";
     AppRoutingModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatDividerModule,
     MatListModule,
     MatIconModule,
-    MatButtonModule,
     MatCardModule,
-    MatInputModule,
     NgxsModule.forRoot([DeckState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     PerfectScrollbarModule
