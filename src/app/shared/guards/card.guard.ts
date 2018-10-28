@@ -8,6 +8,7 @@ import {
 import { Observable } from "rxjs";
 import { Store } from "@ngxs/store";
 import { DeckState } from "../store/deck.state";
+import { cardNames } from "../data/card-names";
 
 @Injectable({
   providedIn: "root"
@@ -22,6 +23,9 @@ export class CardGuard implements CanActivate {
     const cardName = this.store.selectSnapshot(DeckState.cardName);
     if (!cardId) {
       this.router.navigate(["/cards", cardName]);
+    }
+    if (cardId && !cardNames.includes(cardId)) {
+      this.router.navigate(["/404"]);
     }
     return true;
   }

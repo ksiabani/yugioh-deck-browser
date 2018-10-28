@@ -13,14 +13,21 @@ import {
 } from "@angular/material";
 import { NgxsModule } from "@ngxs/store";
 import { NgxsReduxDevtoolsPluginModule } from "@ngxs/devtools-plugin";
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
 import { LayoutComponent } from "./layout/layout.component";
 import { CardsComponent } from "./cards/cards.component";
 import { CardComponent } from "./card/card.component";
 import { DeckState } from "./shared/store/deck.state";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 @NgModule({
-  declarations: [AppComponent, LayoutComponent, CardsComponent, CardComponent],
+  declarations: [
+    AppComponent,
+    LayoutComponent,
+    CardsComponent,
+    CardComponent,
+    PageNotFoundComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

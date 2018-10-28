@@ -4,6 +4,7 @@ import { CardComponent } from "./card/card.component";
 import { CardGuard } from "./shared/guards/card.guard";
 import { CardsComponent } from "./cards/cards.component";
 import { LayoutComponent } from "./layout/layout.component";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {
@@ -20,7 +21,8 @@ const routes: Routes = [
     path: "cards/:cardId",
     canActivate: [CardGuard],
     component: CardComponent
-  }
+  },
+  { path: "**", component: PageNotFoundComponent }
 ];
 
 @NgModule({
