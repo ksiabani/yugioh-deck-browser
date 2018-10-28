@@ -6,9 +6,10 @@
     width: 100%;
     height: auto;
     &.skeleton{
-      height: 360px;
+      //height: 360px;
     }
     &__img {
+      flex: 0 0 auto;
       opacity: 1;
       width: 20vw;
       height: calc(20vw * 1.47);
