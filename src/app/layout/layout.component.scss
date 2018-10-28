@@ -52,6 +52,8 @@
       margin: 0 32px 0 16px;
     }
     &__icon {
+      display: flex;
+      height: 40px;
       color: $black;
     }
   }

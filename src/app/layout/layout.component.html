@@ -19,8 +19,9 @@
               aria-label="Toggle sidenav"
               mat-icon-button
               (click)="sidenav.toggle()"
-              *ngIf="isMobile | async">
-        <mat-icon class="content__header__icon" aria-label="Side nav toggle icon">menu</mat-icon>
+              *ngIf="isMobile | async"
+              class="content__header__icon">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span *ngIf="!(isMobile | async)" class="content__header__title">Card details</span>
       <span class="spacer"></span>
