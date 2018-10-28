@@ -1,6 +1,7 @@
 # Yu-Gi-Oh! Deck Browser
 
-> A deck browser for your cards: **[https://ksiabani.github.io/reboard](https://ksiabani.github.io/reboard)**
+> A deck browser for your cards: **[https://ksiabani.github.io/yugioh-deck-browser](https://ksiabani.github.io/yugioh-deck-browser)** 
+(You must [allow viewing mixed](https://kb.iu.edu/d/bdny) content to run this demo)
 
 ![alt text](https://raw.githubusercontent.com/ksiabani/yugioh-deck-browser/master/src/assets/images/screenshot.png "Yu-Gi-Oh! Deck Browser")
 
