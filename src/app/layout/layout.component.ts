@@ -12,6 +12,8 @@ import { MatSidenav } from "@angular/material";
   styleUrls: ["./layout.component.scss"]
 })
 export class LayoutComponent implements OnInit {
+
+  // Create an observable that matches certain breakpoints
   isMobile: Observable<boolean> = this.breakpointObserver
     .observe([
       Breakpoints.Handset,
@@ -19,8 +21,12 @@ export class LayoutComponent implements OnInit {
       Breakpoints.WebPortrait
     ])
     .pipe(map(result => result.matches));
+
+  // Select item from state
   @Select(DeckState.cardName)
   cardName: Observable<string>;
+
+  // Get a sidenav instance to use later
   @ViewChild("sidenav")
   sidenav: MatSidenav;
 
@@ -30,6 +36,7 @@ export class LayoutComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Close sidenav when viewport smaller than 959px
   closeSidenav() {
     if (this.breakpointObserver.isMatched('(max-width: 959px)')) {
       this.sidenav.close();

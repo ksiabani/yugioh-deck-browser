@@ -17,6 +17,7 @@ export interface DeckStateModel {
   loading: boolean;
 }
 
+// Define state and set defaults
 @State<DeckStateModel>({
   name: "deck",
   defaults: {
@@ -34,6 +35,7 @@ export class DeckState implements NgxsOnInit {
     private sanitizer: DomSanitizer
   ) {}
 
+  // Create selectors
   @Selector()
   static cards(state: DeckStateModel): Card[] {
     return state.cards;
@@ -59,6 +61,7 @@ export class DeckState implements NgxsOnInit {
     return state.loading;
   }
 
+  // Run certain actions when initializing state
   ngxsOnInit(ctx: StateContext<DeckStateModel>) {
     const cardName: string = cardNames[0];
     ctx.dispatch([
@@ -67,6 +70,7 @@ export class DeckState implements NgxsOnInit {
     ]);
   }
 
+  // Get cards form data service and load them to state
   @Action(GetCards)
   getCards(ctx: StateContext<DeckStateModel>) {
     ctx.patchState({ loading: true });
@@ -79,11 +83,14 @@ export class DeckState implements NgxsOnInit {
     );
   }
 
+  // Load a card into state
   @Action(SetCard)
   setCard(ctx: StateContext<DeckStateModel>, { card }: SetCard) {
     ctx.patchState({ card });
   }
 
+  // Return image as a blob from data service
+  // Return a safe URL from it and load it in state
   @Action(GetCardImage)
   getCardImage(ctx: StateContext<DeckStateModel>, { cardName }: GetCardImage) {
     ctx.patchState({ loading: true });
@@ -98,6 +105,7 @@ export class DeckState implements NgxsOnInit {
     );
   }
 
+  // Load current's card name to state
   @Action(SetCardName)
   setCardName(ctx: StateContext<DeckStateModel>, { cardName }: SetCardName) {
     ctx.patchState({ cardName });

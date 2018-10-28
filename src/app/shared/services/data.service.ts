@@ -14,6 +14,7 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
+  // Get card data for each card in the card list and return an array of results
   getCards() {
     return this.cardNames.pipe(
       mergeMap(q =>
@@ -26,6 +27,7 @@ export class DataService {
     );
   }
 
+  // Get card image (this endpoint will return a blob)
   getCardImage(cardName: string): Observable<Blob> {
     return this.http.get(`${environment.api}/card_image/${cardName}`, {
       responseType: "blob"

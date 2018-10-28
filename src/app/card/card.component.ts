@@ -14,6 +14,8 @@ import { filter } from "rxjs/operators";
   styleUrls: ["./card.component.scss"]
 })
 export class CardComponent implements OnInit {
+
+  // Select items from state
   @Select(DeckState.imageData)
   imageData: Observable<SafeUrl>;
   @Select(DeckState.loading)
@@ -26,6 +28,8 @@ export class CardComponent implements OnInit {
   constructor(private route: ActivatedRoute, private store: Store) {}
 
   ngOnInit() {
+
+    // Use store to get card's image from API and set card name in state
     this.cards.pipe(filter(cards => !!cards)).subscribe(cards => {
       const cardName = this.route.snapshot.params.cardId;
       const selectedCard = cards.find(card => card.name === cardName);

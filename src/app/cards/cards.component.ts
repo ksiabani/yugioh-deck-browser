@@ -16,12 +16,16 @@ import { filter } from "rxjs/operators";
   styleUrls: ["./cards.component.scss"]
 })
 export class CardsComponent implements OnInit {
+
+  // Select items from state
   @Select(DeckState.cards)
   cards: Observable<Card[]>;
+
   constructor(private store: Store) {}
 
   ngOnInit() {}
 
+  // Get card details for the selected card and put them to state
   getCardDetails(cardName) {
     this.cards.pipe(filter(cards => !!cards)).subscribe(cards => {
       const selectedCard = cards.find(card => card.name === cardName);

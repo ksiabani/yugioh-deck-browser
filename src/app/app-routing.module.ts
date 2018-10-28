@@ -6,16 +6,17 @@ import { CardsComponent } from "./cards/cards.component";
 import { LayoutComponent } from "./layout/layout.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
+// Set routes and pass them through card guard
 const routes: Routes = [
   {
     path: "",
     canActivate: [CardGuard],
-    component: LayoutComponent
+    component: LayoutComponent // never gets here, but Angular needs one
   },
   {
     path: "cards",
     canActivate: [CardGuard],
-    component: CardsComponent
+    component: CardsComponent // never gets here, but Angular needs one
   },
   {
     path: "cards/:cardId",
