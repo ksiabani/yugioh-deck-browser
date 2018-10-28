@@ -1,27 +1,31 @@
-# AngularFrontStarter
+# Yu-Gi-Oh! Deck Browser
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
+> A deck browser for your cards: **[https://ksiabani.github.io/reboard](https://ksiabani.github.io/reboard)**
 
-## Development server
+![alt text](https://raw.githubusercontent.com/ksiabani/yugioh-deck-browser/master/src/assets/images/screenshot.png "Yu-Gi-Oh! Deck Browser")
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## What's inside?
 
-## Code scaffolding
+* [Angular 6](https://github.com/angular/angular) with [Angular CLI](https://cli.angular.io/)
+* Material components from [Angular Material 6](https://github.com/angular/material2)
+* Grid features by [Bootstrap 4](https://getbootstrap.com)
+* Icons from [Font Awesome 4](https://fontawesome.com/v4.7.0/) and [Material Design](https://material.io/tools/icons/?style=baseline)
+* State management with [NGXS](https://ngxs.gitbook.io/ngxs/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## How to setup
 
-## Build
+- Clone this repo.
+- Install node.js dependencies: `npm install`.
+- Run `npm start` and open your browser at `localhost:4200`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Task automation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Run `npm start` to Run development server on `http://localhost:4200/`
+- Run `ng build` to build the project in the `dist/` directory. Use the `--prod` flag for a production build.
+- Run `npm test` to run tests
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## License
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+MIT
